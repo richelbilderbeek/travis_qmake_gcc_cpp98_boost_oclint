@@ -5,6 +5,16 @@ addons:
   apt: 
     packages: libboost-all-dev
 
+install:
+  - ./install_oclint.sh
+
 script: 
+  - ./do_oclint.sh
   - ./build.sh
-  - ./travis_qmake_gcc_cpp98_boost
+  - ./travis_qmake_gcc_cpp98_boost_oclint
+
+after_failure:
+  - cat oclint.log
+
+after_success:
+  - cat oclint.log
