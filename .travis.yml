@@ -1,0 +1,10 @@
+language: cpp
+compiler: gcc
+
+addons: 
+  apt: 
+    packages: libboost-all-dev
+
+script: 
+  - ./build.sh
+  - ./travis_qmake_gcc_cpp98_boost
