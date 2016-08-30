@@ -1,7 +1,13 @@
 #!/bin/bash
 
-# Clean main should work
-./oclint-0.10.3/bin/oclint -o oclint.log main.cpp -- -c > /dev/null
+cpp_files=`ls *.cpp`
+h_files=`ls *.h`
+
+./oclint-0.10.3/bin/oclint -o oclint.log \
+  -disable-rule ShortVariableName \
+  $cpp_files \
+  $h_files \
+  -- -c 
 
 cat oclint.log
 
